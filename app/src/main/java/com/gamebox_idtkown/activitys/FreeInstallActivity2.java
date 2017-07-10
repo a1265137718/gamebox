@@ -6,6 +6,7 @@ import com.gamebox_idtkown.utils.FreeInstallUtil;
 import com.umeng.analytics.game.UMGameAgent;
 
 import android.app.Activity;
+import android.support.v7.widget.LinearLayoutManager;
 
 /**
  * Created by zhangkai on 2017/3/9.

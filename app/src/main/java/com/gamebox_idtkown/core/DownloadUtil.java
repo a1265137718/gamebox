@@ -36,7 +36,8 @@ public class DownloadUtil {
         DownloadInfo downloadInfo = new DownloadInfo();
         BaseDownloadTask task =  FileDownloader.getImpl().create(gameInfo.getUrl());
         downloadInfo.downloadTask = task;
-        task.setSyncCallback(true).setAutoRetryTimes(AutoRetryTimes).setMinIntervalUpdateSpeed(MinIntervalUpdateSpeed).setPath(PathUtil
+        task.setSyncCallback(true).setAutoRetryTimes(AutoRetryTimes).setMinIntervalUpdateSpeed
+                (MinIntervalUpdateSpeed).setPath(PathUtil
                 .getApkPath(gameInfo
                         .getName()), false).setCallbackProgressTimes(times).setCallbackProgressMinInterval
                 (CallbackProgressMinInterval).setListener

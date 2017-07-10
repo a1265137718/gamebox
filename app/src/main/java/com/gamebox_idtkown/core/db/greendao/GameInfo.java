@@ -150,13 +150,8 @@ public class GameInfo implements Serializable {
     }
 
     public String getUrl() {
-        if (down_url == null || down_url.isEmpty()) {
-            if (url == null) {
-                url = "";
-            }
-            return url;
-        }
-        return down_url;
+        url = (url == null || url.isEmpty()) ? (down_url == null || down_url.isEmpty() ? "" : down_url) : url;
+        return url;
     }
 
     public void setUrl(String url) {

@@ -30,10 +30,16 @@ import okhttp3.RequestBody;
  */
 public final class OKHttpUtil {
     public static Request.Builder getRequestBuilder(String url) {
-        if (GoagalInfo.channelInfo != null) {
-            url += "/channel_id/" + GoagalInfo.channelInfo.agent_id;
-        } else {
-            url += "/channel_id/67";
+        return  getRequestBuilder(url, true);
+    }
+
+    public static Request.Builder getRequestBuilder(String url, boolean on) {
+        if(!url.contains("?from_type=")) {
+            if (GoagalInfo.channelInfo != null) {
+                url += "/channel_id/" + GoagalInfo.channelInfo.agent_id;
+            } else {
+                url += "/channel_id/67";
+            }
         }
         LogUtil.msg("客户端请求url->" + url);
         Request.Builder builder = new Request.Builder()

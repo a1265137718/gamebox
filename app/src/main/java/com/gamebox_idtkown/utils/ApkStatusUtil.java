@@ -32,6 +32,7 @@ import com.gamebox_idtkown.domain.AppRepository;
 import com.gamebox_idtkown.domain.GoagalInfo;
 import com.gamebox_idtkown.domain.ResultInfo;
 import com.gamebox_idtkown.domain.ShortCutInfo;
+import com.gamebox_idtkown.engin.DownloadEngin;
 import com.gamebox_idtkown.engin.GameDownEngin;
 import com.gamebox_idtkown.net.entry.Response;
 import com.gamebox_idtkown.services.DownloadManagerService;
@@ -130,6 +131,7 @@ public class ApkStatusUtil {
             setButtonStatus(context, view, ApkStatus.WAIT_LISTENER);
             DownloadManagerService.addDownloadInfo(downloadInfo);
             DownloadManagerService.startTask(downloadInfo);
+            new DownloadEngin().down(gameInfo.getDown_url());
             EventBus.getDefault().post(EventBusMessage.BADGE);
             EventBus.getDefault().post(downloadInfo);
             GameDownEngin.getImpl(context).statGameDown(gameInfo.getGameId(), gameInfo.getType(), new Callback<String>() {
